@@ -3,6 +3,7 @@ import express from "express";
 import config from 'config';
 import router from "./router";
 import db from '../config/db';
+import Logger from "../config/logger";
 
 const port = config.get<number>('port');
 
@@ -16,5 +17,5 @@ app.listen(port, async() => {
     await db();
 
 
-    console.log(`A aplicação está funcionado na porta: ${port}`);
+    Logger.info(`A aplicação está funcionado na porta: ${port}`);
 })
